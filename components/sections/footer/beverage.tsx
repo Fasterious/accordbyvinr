@@ -7,7 +7,7 @@ import {
 } from "../../ui/footer";
 import { WineIcon } from "lucide-react";
 
-export default function FooterSection() {
+export default function BeverageFooter() {
   return (
     <footer className="w-full bg-background px-4">
       <div className="mx-auto max-w-container">
@@ -48,6 +48,14 @@ export default function FooterSection() {
             </FooterColumn>
             <FooterColumn>
               <h3 className="text-md pt-1 font-semibold">Company</h3>
+              <a
+                href="https://vinr.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground"
+              >
+                VinR Website
+              </a>
               <a
                 href="tel:+33648016218"
                 className="text-sm text-muted-foreground"
@@ -101,4 +109,4 @@ export default function FooterSection() {
       </div>
     </footer>
   );
-}
+} 

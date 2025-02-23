@@ -163,6 +163,16 @@ const config = {
             opacity: "1",
           },
         },
+        "glow-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(1rem)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -170,6 +180,7 @@ const config = {
         appear: "appear 0.6s forwards ease-out",
         "appear-zoom": "appear-zoom 0.6s forwards ease-out",
         "pulse-hover": "pulse-hover 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "glow-up": "glow-up 2s ease-out forwards 1s",
       },
       spacing: {
         container: "1280px",
