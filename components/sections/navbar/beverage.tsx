@@ -48,10 +48,10 @@ export default function BeverageNavbar() {
                 : "-translate-y-4 opacity-0 pointer-events-none"
               }`}
             >
-              <a href="#contact">
+              <Link href="#contact">
                 <RocketIcon className="mr-2 h-4 w-4" />
                 Get Early Access
-              </a>
+              </Link>
             </Button>
           </NavbarRight>
         </NavbarComponent>

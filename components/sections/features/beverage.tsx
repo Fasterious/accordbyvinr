@@ -12,7 +12,7 @@ export default function BeverageFeatures() {
               <QrCodeIcon className="h-8 w-8 mx-auto text-purple-600" />
             </div>
             <h3 className="text-xl font-semibold mb-2">QR Code Activation</h3>
-            <p className="text-muted-foreground">Each product comes with a unique QR code that unlocks an immersive digital experience, featuring videos, images, and your brand's story.</p>
+            <p className="text-muted-foreground">Each product comes with a unique QR code that unlocks an immersive digital experience, featuring videos, images, and your brand&apos;s story.</p>
           </div>
           <div className="p-6 rounded-lg border bg-card">
             <div className="mb-4">

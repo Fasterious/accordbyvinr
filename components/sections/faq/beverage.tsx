@@ -33,7 +33,7 @@ export default function BeverageFAQ() {
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Our AI-powered analytics track consumer engagement, scan rates, content interaction, and purchase behavior. You'll get real-time insights on popular products, consumer preferences, and campaign performance.
+                Our AI-powered analytics track consumer engagement, scan rates, content interaction, and purchase behavior. You&apos;ll get real-time insights on popular products, consumer preferences, and campaign performance.
               </p>
             </AccordionContent>
           </AccordionItem>

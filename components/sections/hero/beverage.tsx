@@ -4,6 +4,7 @@ import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
 import { Section } from "../../ui/section";
 import { SparklesIcon, RocketIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function BeverageHero() {
   return (
@@ -28,10 +29,10 @@ export default function BeverageHero() {
             size="lg"
             asChild
           >
-            <a href="#contact">
+            <Link href="#contact">
               <RocketIcon className="mr-2 h-5 w-5" />
               Get Early Access
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
