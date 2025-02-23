@@ -29,10 +29,10 @@ export default function BeverageHero() {
             size="lg"
             asChild
           >
-            <Link href="#contact">
+            <a href="mailto:contact@vinr.fr">
               <RocketIcon className="mr-2 h-5 w-5" />
               Get Early Access
-            </Link>
+            </a>
           </Button>
         </div>
       </div>

@@ -48,10 +48,10 @@ export default function BeverageNavbar() {
                 : "-translate-y-4 opacity-0 pointer-events-none"
               }`}
             >
-              <Link href="#contact">
+              <a href="mailto:contact@vinr.fr">
                 <RocketIcon className="mr-2 h-4 w-4" />
                 Get Early Access
-              </Link>
+              </a>
             </Button>
           </NavbarRight>
         </NavbarComponent>

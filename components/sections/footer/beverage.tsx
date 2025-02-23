@@ -54,7 +54,7 @@ export default function BeverageFooter() {
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground"
               >
-                VinR Website
+                VinR website
               </a>
               <a
                 href="tel:+33648016218"
