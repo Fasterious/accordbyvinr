@@ -1,6 +1,5 @@
 import BeverageNavbar from "../components/sections/navbar/beverage";
 import BeverageHero from "../components/sections/hero/beverage";
-import BeverageItems from "../components/sections/items/beverage";
 import BeverageFeatures from "../components/sections/features/beverage";
 import BeverageFlow from "../components/sections/flow/beverage";
 import BeverageFAQ from "../components/sections/faq/beverage";

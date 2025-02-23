@@ -8,6 +8,7 @@ import {
 } from "../../ui/navbar";
 import { WineIcon, RocketIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function BeverageNavbar() {
   const [showButton, setShowButton] = useState(false);
@@ -28,13 +29,13 @@ export default function BeverageNavbar() {
       <div className="relative mx-auto max-w-container px-4">
         <NavbarComponent className="h-16">
           <NavbarLeft>
-            <a
+            <Link
               href="/"
               className="flex items-center gap-2 text-xl font-bold"
             >
               <WineIcon className="h-8 w-8 text-purple-600" />
               <span>Accord by VinR</span>
-            </a>
+            </Link>
           </NavbarLeft>
           <NavbarRight>
             <Button 
