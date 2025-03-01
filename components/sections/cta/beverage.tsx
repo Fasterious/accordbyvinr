@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Section } from "../../ui/section";
 import Glow from "../../ui/glow";
 import { RocketIcon } from "lucide-react";
