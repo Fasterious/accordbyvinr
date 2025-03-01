@@ -30,7 +30,7 @@ export default function BeverageCTA() {
               zIndex: 9999,
               pointerEvents: 'auto'
             }}
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.stopPropagation();
               window.location.href = 'mailto:contact@vinr.fr';
             }}

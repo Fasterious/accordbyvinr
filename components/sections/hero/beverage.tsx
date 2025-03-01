@@ -34,7 +34,7 @@ export default function BeverageHero() {
               <a 
                 href="mailto:contact@vinr.fr"
                 style={{ pointerEvents: 'auto' }}
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.stopPropagation();
                   window.location.href = 'mailto:contact@vinr.fr';
                 }}
