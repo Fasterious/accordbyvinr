@@ -24,21 +24,35 @@ export default function BeverageHero() {
             Empower brewers, winemakers, and beverage producers with AI-driven insights and interactive consumer experiences
           </p>
           
-          <Button 
-            variant="default" 
-            size="lg"
-            asChild
-          >
-            <a href="mailto:contact@vinr.fr">
-              <RocketIcon className="mr-2 h-5 w-5" />
-              Get Early Access
-            </a>
-          </Button>
+          <div className="relative" style={{ zIndex: 20 }}>
+            <Button 
+              variant="default" 
+              size="lg" 
+              asChild
+              className="relative"
+              style={{ zIndex: 20, position: 'relative' }}
+            >
+              <a 
+                href="mailto:contact@vinr.fr"
+                style={{ pointerEvents: 'auto' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.location.href = 'mailto:contact@vinr.fr';
+                }}
+              >
+                <RocketIcon className="mr-2 h-5 w-5" />
+                Get Early Access
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
       
       {/* Purple Glow Effect */}
-      <div className="absolute left-0 top-[20%] h-full w-full translate-y-[1rem] opacity-0 animate-glow-up">
+      <div 
+        className="absolute left-0 top-[20%] h-full w-full translate-y-[1rem] opacity-0 animate-glow-up pointer-events-none"
+        style={{ zIndex: 1 }}
+      >
         <div className="absolute left-1/2 top-0 aspect-square w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/20 blur-[120px]" />
         <div className="absolute left-1/2 top-0 aspect-square w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500/20 blur-[100px]" />
       </div>
