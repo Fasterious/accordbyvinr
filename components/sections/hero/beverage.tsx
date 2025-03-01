@@ -4,7 +4,6 @@ import { Button } from "../../ui/button";
 import { Badge } from "../../ui/badge";
 import { Section } from "../../ui/section";
 import { SparklesIcon, RocketIcon } from "lucide-react";
-import Link from "next/link";
 
 export default function BeverageHero() {
   return (

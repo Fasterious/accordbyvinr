@@ -4,7 +4,6 @@ import { Section } from "../../ui/section";
 import { Button } from "../../ui/button";
 import Glow from "../../ui/glow";
 import { RocketIcon } from "lucide-react";
-import Link from "next/link";
 
 export default function BeverageCTA() {
   return (
