@@ -12,13 +12,16 @@ import {
 } from "lucide-react";
 import { Item, ItemIcon, ItemTitle, ItemDescription } from "../../ui/item";
 import { Section } from "../../ui/section";
+import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageItems() {
+  const { t } = useLanguage();
+  
   return (
     <Section id="features">
       <div className="mx-auto flex max-w-container flex-col items-center gap-6 sm:gap-20">
         <h2 className="max-w-[560px] text-center text-3xl font-semibold leading-tight sm:text-5xl sm:leading-tight">
-          Powerful Features for Modern Beverage Brands
+          {t("powerful_features")}
         </h2>
         <div className="grid auto-rows-fr grid-cols-2 gap-0 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           <Item>
@@ -26,10 +29,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <QrCodeIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              QR Code Activation
+              {t("qr_code_activation_2")}
             </ItemTitle>
             <ItemDescription>
-              Unique QR codes for each product, unlocking rich digital experiences
+              {t("qr_code_desc_2")}
             </ItemDescription>
           </Item>
           <Item>
@@ -37,10 +40,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <UsersIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Direct Connection
+              {t("direct_connection_2")}
             </ItemTitle>
             <ItemDescription>
-              Build direct relationships with your consumers to increase loyalty
+              {t("direct_connection_desc_2")}
             </ItemDescription>
           </Item>
           <Item>
@@ -48,10 +51,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <BarChart3Icon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Real-time Analytics
+              {t("realtime_analytics")}
             </ItemTitle>
             <ItemDescription>
-              Track consumer behavior and sales with AI-powered insights
+              {t("realtime_analytics_desc")}
             </ItemDescription>
           </Item>
           <Item>
@@ -59,10 +62,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <SparklesIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              AI Recommendations
+              {t("ai_recommendations")}
             </ItemTitle>
             <ItemDescription>
-              Smart suggestions to boost engagement and optimize sales
+              {t("ai_recommendations_desc")}
             </ItemDescription>
           </Item>
           <Item>
@@ -70,10 +73,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <LayoutDashboardIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Easy Management
+              {t("easy_management")}
             </ItemTitle>
             <ItemDescription>
-              Intuitive dashboard for product and content management
+              {t("easy_management_desc")}
             </ItemDescription>
           </Item>
           <Item>
@@ -81,10 +84,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <HeartIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Brand Storytelling
+              {t("brand_storytelling")}
             </ItemTitle>
             <ItemDescription>
-              Share your unique story through multimedia experiences
+              {t("brand_storytelling_desc")}
             </ItemDescription>
           </Item>
           <Item>
@@ -92,10 +95,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <LineChartIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Performance Tracking
+              {t("performance_tracking")}
             </ItemTitle>
             <ItemDescription>
-              Monitor engagement metrics and campaign effectiveness
+              {t("performance_tracking_desc")}
             </ItemDescription>
           </Item>
           <Item>
@@ -103,10 +106,10 @@ export default function BeverageItems() {
               <ItemIcon>
                 <MessageSquareIcon className="h-5 w-5 stroke-1" />
               </ItemIcon>
-              Consumer Feedback
+              {t("consumer_feedback")}
             </ItemTitle>
             <ItemDescription>
-              Gather and analyze customer feedback to improve products
+              {t("consumer_feedback_desc")}
             </ItemDescription>
           </Item>
         </div>

@@ -1,10 +1,15 @@
+"use client";
+
 import { Section } from "../../ui/section";
+import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageFlow() {
+  const { t } = useLanguage();
+  
   return (
     <Section className="py-24 bg-muted/50">
       <div className="mx-auto max-w-container text-center">
-        <h2 className="text-4xl font-semibold mb-16">How It Works</h2>
+        <h2 className="text-4xl font-semibold mb-16">{t("how_it_works")}</h2>
         <div className="relative">
           {/* Progress line */}
           <div className="absolute hidden md:block top-6 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-purple-600/20 via-purple-600/20 to-purple-600/20" />
@@ -13,23 +18,23 @@ export default function BeverageFlow() {
             {[
               {
                 step: 1,
-                title: "Product Onboarding",
-                description: "Register your products and create unique digital identities"
+                title: t("product_onboarding"),
+                description: t("product_onboarding_desc")
               },
               {
                 step: 2,
-                title: "Consumer Engagement",
-                description: "Connect with consumers through interactive experiences"
+                title: t("consumer_engagement"),
+                description: t("consumer_engagement_desc")
               },
               {
                 step: 3,
-                title: "Data Collection",
-                description: "Gather valuable insights from consumer interactions"
+                title: t("data_collection"),
+                description: t("data_collection_desc")
               },
               {
                 step: 4,
-                title: "Growth Optimization",
-                description: "Use AI-powered insights to optimize your strategy"
+                title: t("growth_optimization"),
+                description: t("growth_optimization_desc")
               }
             ].map((item, index) => (
               <div key={index} className="relative">

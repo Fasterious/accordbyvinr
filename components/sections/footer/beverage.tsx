@@ -1,3 +1,5 @@
+"use client";
+
 import { ModeToggle } from "../../ui/mode-toggle";
 import {
   Footer,
@@ -6,8 +8,11 @@ import {
   FooterContent,
 } from "../../ui/footer";
 import { WineIcon } from "lucide-react";
+import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageFooter() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="w-full bg-background px-4">
       <div className="mx-auto max-w-container">
@@ -16,18 +21,18 @@ export default function BeverageFooter() {
             <FooterColumn className="col-span-2 sm:col-span-3 md:col-span-1">
               <div className="flex items-center gap-2">
                 <WineIcon className="h-8 w-8 text-purple-600" />
-                <h3 className="text-xl font-bold">Accord by VinR</h3>
+                <h3 className="text-xl font-bold">{t("accord_by_vinr")}</h3>
               </div>
             </FooterColumn>
             <FooterColumn>
-              <h3 className="text-md pt-1 font-semibold">Product</h3>
+              <h3 className="text-md pt-1 font-semibold">{t("product")}</h3>
               <a
                 href="https://vinr.fr/mentions-legales"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground"
               >
-                Legal Notice
+                {t("legal_notice")}
               </a>
               <a
                 href="https://vinr.fr/politique-de-confidentialite"
@@ -35,7 +40,7 @@ export default function BeverageFooter() {
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground"
               >
-                Privacy Policy
+                {t("privacy_policy")}
               </a>
               <a
                 href="https://vinr.fr/conditions-generales-de-vente"
@@ -43,18 +48,18 @@ export default function BeverageFooter() {
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground"
               >
-                Terms of Sale
+                {t("terms_of_sale")}
               </a>
             </FooterColumn>
             <FooterColumn>
-              <h3 className="text-md pt-1 font-semibold">Company</h3>
+              <h3 className="text-md pt-1 font-semibold">{t("company")}</h3>
               <a
                 href="https://vinr.fr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted-foreground"
               >
-                VinR website
+                {t("vinr_website")}
               </a>
               <a
                 href="tel:+33648016218"
@@ -70,7 +75,7 @@ export default function BeverageFooter() {
               </a>
             </FooterColumn>
             <FooterColumn>
-              <h3 className="text-md pt-1 font-semibold">Social</h3>
+              <h3 className="text-md pt-1 font-semibold">{t("social")}</h3>
               <a
                 href="https://www.facebook.com/VinRfrance/"
                 target="_blank"
@@ -98,10 +103,10 @@ export default function BeverageFooter() {
             </FooterColumn>
           </FooterContent>
           <FooterBottom>
-            <div>© 2024 VinR. All rights reserved</div>
+            <div>{t("all_rights_reserved")}</div>
             <div className="flex items-center gap-4">
-              <a href="https://vinr.fr/politique-de-confidentialite" className="text-sm text-muted-foreground">Privacy Policy</a>
-              <a href="https://vinr.fr/conditions-generales-de-vente" className="text-sm text-muted-foreground">Terms of Service</a>
+              <a href="https://vinr.fr/politique-de-confidentialite" className="text-sm text-muted-foreground">{t("privacy_policy")}</a>
+              <a href="https://vinr.fr/conditions-generales-de-vente" className="text-sm text-muted-foreground">{t("terms_of_service")}</a>
               <ModeToggle />
             </div>
           </FooterBottom>

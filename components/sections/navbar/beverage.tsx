@@ -10,9 +10,12 @@ import {
 import { WineIcon, RocketIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "../../contexts/language-provider";
+import { LanguageSelector } from "../../ui/language-selector";
 
 export default function BeverageNavbar() {
   const [showButton, setShowButton] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,10 +38,11 @@ export default function BeverageNavbar() {
               className="flex items-center gap-2 text-xl font-bold"
             >
               <WineIcon className="h-8 w-8 text-purple-600" />
-              <span>Accord by VinR</span>
+              <span>{t("accord_by_vinr")}</span>
             </Link>
           </NavbarLeft>
-          <NavbarRight>
+          <NavbarRight className="flex items-center gap-4">
+            <LanguageSelector />
             <Button 
               variant="default" 
               size="sm"
@@ -59,7 +63,7 @@ export default function BeverageNavbar() {
                 }}
               >
                 <RocketIcon className="mr-2 h-4 w-4" />
-                Get Early Access
+                {t("get_early_access")}
               </a>
             </Button>
           </NavbarRight>

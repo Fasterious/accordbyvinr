@@ -7,66 +7,69 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../../ui/accordion";
+import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageFAQ() {
+  const { t } = useLanguage();
+  
   return (
     <Section>
       <div className="mx-auto flex max-w-container flex-col items-center gap-8">
         <h2 className="text-center text-3xl font-semibold sm:text-5xl">
-          Common Questions
+          {t("common_questions")}
         </h2>
         <Accordion type="single" collapsible className="w-full max-w-[800px]">
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              How does the QR code system work?
+              {t("qr_code_question")}
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Each product gets a unique QR code that, when scanned, leads consumers to an interactive digital experience. This includes your brand story, product details, tasting notes, and multimedia content.
+                {t("qr_code_answer")}
               </p>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              What kind of analytics do you provide?
+              {t("analytics_question")}
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Our AI-powered analytics track consumer engagement, scan rates, content interaction, and purchase behavior. You&apos;ll get real-time insights on popular products, consumer preferences, and campaign performance.
+                {t("analytics_answer")}
               </p>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              How easy is it to manage content?
+              {t("content_question")}
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Our intuitive dashboard makes it simple to add and update product information, upload media, and manage your digital content. No technical expertise required - if you can use social media, you can use our platform.
+                {t("content_answer")}
               </p>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              What makes the AI recommendations special?
+              {t("ai_question")}
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Our AI analyzes consumer behavior patterns, market trends, and your product data to provide personalized recommendations. This helps you identify potential customers and optimize your marketing strategies for better engagement and sales.
+                {t("ai_answer")}
               </p>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              How do you help with consumer engagement?
+              {t("engagement_question")}
             </AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 max-w-[640px] text-balance text-muted-foreground">
-                Beyond the initial QR code interaction, we help you build lasting relationships through personalized content, targeted recommendations, and interactive features that keep consumers coming back to learn more about your products.
+                {t("engagement_answer")}
               </p>
             </AccordionContent>
           </AccordionItem>

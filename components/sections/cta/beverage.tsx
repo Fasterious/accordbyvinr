@@ -4,8 +4,11 @@ import React from "react";
 import { Section } from "../../ui/section";
 import Glow from "../../ui/glow";
 import { RocketIcon } from "lucide-react";
+import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageCTA() {
+  const { t } = useLanguage();
+  
   return (
     <Section id="contact" className="group relative overflow-hidden isolate">
       <div 
@@ -17,9 +20,9 @@ export default function BeverageCTA() {
       </div>
       
       <div className="relative mx-auto flex max-w-container flex-col items-center gap-6 text-center sm:gap-8" style={{ zIndex: 10 }}>
-        <h2 className="text-3xl font-semibold sm:text-5xl">Be Among the First</h2>
+        <h2 className="text-3xl font-semibold sm:text-5xl">{t("be_among_first")}</h2>
         <p className="text-md max-w-[600px] text-muted-foreground sm:text-xl">
-          Join our early access program and transform your beverage brand into an interactive experience
+          {t("join_early_access")}
         </p>
         
         <div className="relative" style={{ zIndex: 9999 }}>
@@ -37,7 +40,7 @@ export default function BeverageCTA() {
             }}
           >
             <RocketIcon className="mr-2 h-5 w-5" />
-            Get Early Access
+            {t("get_early_access")}
           </a>
         </div>
       </div>
