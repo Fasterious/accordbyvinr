@@ -10,13 +10,11 @@ import {
   NavbarRight,
 } from "../../ui/navbar";
 import { useLanguage } from "../../contexts/language-provider";
-import { usePathname } from "next/navigation";
 import { LanguageSelector } from "../../ui/language-selector";
 
 export default function BeverageNavbar() {
   const [showButton, setShowButton] = useState(false);
   const { t, language } = useLanguage();
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
