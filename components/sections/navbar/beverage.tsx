@@ -55,12 +55,8 @@ export default function BeverageNavbar() {
               style={{ zIndex: 60, position: 'relative' }}
             >
               <a 
-                href="mailto:contact@vinr.fr"
+                href="/contact"
                 style={{ pointerEvents: 'auto', position: 'relative', zIndex: 60 }}
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.stopPropagation();
-                  window.location.href = 'mailto:contact@vinr.fr';
-                }}
               >
                 <RocketIcon className="mr-2 h-4 w-4" />
                 {t("get_early_access")}

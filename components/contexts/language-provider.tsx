@@ -110,7 +110,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       "vinr_website": "Site web VinR",
       "social": "Réseaux",
       "all_rights_reserved": "© 2024 VinR. Tous droits réservés",
-      "terms_of_service": "Conditions d'Utilisation"
+      "terms_of_service": "Conditions d'Utilisation",
+      "contact_us": "Contactez-nous",
+      "contact_description": "Envoyez-nous un message pour en savoir plus sur nos services et obtenir un accès anticipé",
+      "name": "Nom",
+      "your_name": "Votre nom",
+      "email": "Email",
+      "your_email": "Votre email",
+      "your_company": "Votre entreprise",
+      "message": "Message",
+      "your_message": "Votre message",
+      "send_message": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "send_me_copy": "M'envoyer une copie de ce message",
+      "form_submitted_success": "Merci ! Votre message a été envoyé avec succès. Nous vous contacterons bientôt.",
+      "form_submitted_error": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+      "go_back": "Retour"
     },
     en: {
       // Nav, Hero et CTA
@@ -184,7 +199,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       "vinr_website": "VinR website",
       "social": "Social",
       "all_rights_reserved": "© 2024 VinR. All rights reserved",
-      "terms_of_service": "Terms of Service"
+      "terms_of_service": "Terms of Service",
+      "contact_us": "Contact Us",
+      "contact_description": "Send us a message to learn more about our services and get early access",
+      "name": "Name",
+      "your_name": "Your name",
+      "email": "Email",
+      "your_email": "Your email",
+      "your_company": "Your company",
+      "message": "Message",
+      "your_message": "Your message",
+      "send_message": "Send Message",
+      "sending": "Sending...",
+      "send_me_copy": "Send me a copy of this message",
+      "form_submitted_success": "Thank you! Your message has been sent successfully. We will contact you soon.",
+      "form_submitted_error": "An error occurred while sending your message. Please try again later.",
+      "go_back": "Back"
     }
   };
 

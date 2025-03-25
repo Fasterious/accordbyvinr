@@ -36,12 +36,8 @@ export default function BeverageHero() {
               style={{ zIndex: 20, position: 'relative' }}
             >
               <a 
-                href="mailto:contact@vinr.fr"
+                href="/contact"
                 style={{ pointerEvents: 'auto' }}
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.stopPropagation();
-                  window.location.href = 'mailto:contact@vinr.fr';
-                }}
               >
                 <RocketIcon className="mr-2 h-5 w-5" />
                 {t("get_early_access")}

@@ -27,16 +27,12 @@ export default function BeverageCTA() {
         
         <div className="relative" style={{ zIndex: 9999 }}>
           <a 
-            href="mailto:contact@vinr.fr"
+            href="/contact"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white shadow-lg cursor-pointer"
             style={{ 
               position: 'relative',
               zIndex: 9999,
               pointerEvents: 'auto'
-            }}
-            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.stopPropagation();
-              window.location.href = 'mailto:contact@vinr.fr';
             }}
           >
             <RocketIcon className="mr-2 h-5 w-5" />
