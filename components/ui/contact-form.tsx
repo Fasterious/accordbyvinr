@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "../contexts/language-provider";
@@ -8,10 +8,16 @@ import { RocketIcon, CheckCircle, AlertCircle, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export function ContactForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+    console.log("ContactForm - Current language:", language);
+  }, [language]);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -60,6 +66,22 @@ export function ContactForm() {
   const handleGoBack = () => {
     router.back();
   };
+  
+  // Éviter les erreurs d'hydratation en attendant que le composant soit monté côté client
+  if (!isMounted) {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-6 relative">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="h-20 bg-purple-600/10 rounded-md animate-pulse"></div>
+            <div className="h-20 bg-purple-600/10 rounded-md animate-pulse"></div>
+          </div>
+          <div className="h-20 bg-purple-600/10 rounded-md animate-pulse"></div>
+          <div className="h-40 bg-purple-600/10 rounded-md animate-pulse"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto space-y-6 relative">

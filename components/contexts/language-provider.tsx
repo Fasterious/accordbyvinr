@@ -12,29 +12,53 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("fr");
-
-  // Persistence de la langue dans le localStorage
-  useEffect(() => {
+// Fonction pour récupérer la langue depuis localStorage au niveau module
+const getInitialLanguage = (): Language => {
+  if (typeof window !== 'undefined') {
     try {
+      // Vérifier d'abord les paramètres d'URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+      if (langParam && (langParam === 'fr' || langParam === 'en')) {
+        console.log("Using language from URL parameter:", langParam);
+        return langParam as Language;
+      }
+      
+      // Vérifier ensuite le localStorage
       const savedLanguage = localStorage.getItem("language") as Language;
       if (savedLanguage && (savedLanguage === "fr" || savedLanguage === "en")) {
-        setLanguage(savedLanguage);
+        console.log("Using language from localStorage:", savedLanguage);
+        return savedLanguage;
       }
     } catch (error) {
-      // Gestion des erreurs de localStorage (mode privé/incognito)
-      console.error("localStorage error:", error);
+      console.error("Error getting language:", error);
     }
-  }, []);
+  }
+  return "fr"; // Langue par défaut
+};
 
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  // Utiliser la langue française par défaut pour le rendu initial (serveur)
+  const [language, setLanguage] = useState<Language>("fr");
+  const [isClient, setIsClient] = useState(false);
+  
+  // Mise à jour du state une fois le composant monté côté client
   useEffect(() => {
-    try {
-      localStorage.setItem("language", language);
-    } catch (error) {
-      console.error("localStorage error:", error);
+    setIsClient(true);
+    setLanguage(getInitialLanguage());
+  }, []);
+  
+  // Mise à jour du localStorage quand la langue change, uniquement côté client
+  useEffect(() => {
+    if (isClient) {
+      try {
+        console.log("Saving language to localStorage:", language);
+        localStorage.setItem("language", language);
+      } catch (error) {
+        console.error("localStorage error:", error);
+      }
     }
-  }, [language]);
+  }, [language, isClient]);
 
   // Traductions
   const translations: Record<Language, Record<string, string>> = {

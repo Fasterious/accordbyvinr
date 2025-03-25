@@ -7,7 +7,7 @@ import { RocketIcon } from "lucide-react";
 import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageCTA() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <Section id="contact" className="group relative overflow-hidden isolate">
@@ -27,7 +27,7 @@ export default function BeverageCTA() {
         
         <div className="relative" style={{ zIndex: 9999 }}>
           <a 
-            href="/contact"
+            href={`/contact?lang=${language}`}
             className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white shadow-lg cursor-pointer"
             style={{ 
               position: 'relative',

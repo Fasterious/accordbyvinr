@@ -1,30 +1,30 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "../../ui/button";
+import { WineIcon, RocketIcon } from "lucide-react";
 import {
   Navbar as NavbarComponent,
   NavbarLeft,
   NavbarRight,
 } from "../../ui/navbar";
-import { WineIcon, RocketIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useLanguage } from "../../contexts/language-provider";
+import { usePathname } from "next/navigation";
 import { LanguageSelector } from "../../ui/language-selector";
 
 export default function BeverageNavbar() {
   const [showButton, setShowButton] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setShowButton(scrollPosition > 100);
+      setShowButton(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -55,7 +55,7 @@ export default function BeverageNavbar() {
               style={{ zIndex: 60, position: 'relative' }}
             >
               <a 
-                href="/contact"
+                href={`/contact?lang=${language}`}
                 style={{ pointerEvents: 'auto', position: 'relative', zIndex: 60 }}
               >
                 <RocketIcon className="mr-2 h-4 w-4" />

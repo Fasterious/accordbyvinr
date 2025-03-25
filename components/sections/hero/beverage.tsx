@@ -8,7 +8,7 @@ import { SparklesIcon, RocketIcon } from "lucide-react";
 import { useLanguage } from "../../contexts/language-provider";
 
 export default function BeverageHero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <Section className="relative overflow-hidden">
@@ -36,7 +36,7 @@ export default function BeverageHero() {
               style={{ zIndex: 20, position: 'relative' }}
             >
               <a 
-                href="/contact"
+                href={`/contact?lang=${language}`}
                 style={{ pointerEvents: 'auto' }}
               >
                 <RocketIcon className="mr-2 h-5 w-5" />
