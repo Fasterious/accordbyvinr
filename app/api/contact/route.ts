@@ -8,14 +8,31 @@ const hasEnvVariables = process.env.EMAIL_USER && process.env.EMAIL_PASS;
 const getTransporter = () => {
   // Mode production avec OVH SMTP
   if (hasEnvVariables) {
+    console.log('Utilisation du mode production avec SMTP OVH');
+    
+    // Utiliser les configurations personnalisées si elles sont disponibles
+    const host = process.env.EMAIL_HOST || 'ssl0.ovh.net';
+    const port = process.env.EMAIL_PORT ? parseInt(process.env.EMAIL_PORT) : 465;
+    const secure = process.env.EMAIL_SECURE ? process.env.EMAIL_SECURE === 'true' : true;
+    
+    console.log('Configuration SMTP:', {
+      host,
+      port,
+      secure,
+      user: process.env.EMAIL_USER,
+      // Ne pas afficher le mot de passe complet pour des raisons de sécurité
+      passLength: process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : 0,
+    });
+    
     return nodemailer.createTransport({
-      host: 'ssl0.ovh.net',
-      port: 465,
-      secure: true, // true pour le port 465
+      host,
+      port,
+      secure, // true pour le port 465, false pour d'autres ports comme 587
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      debug: true, // Active les logs de débogage de nodemailer
     });
   } 
   
@@ -46,6 +63,8 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, company, message, sendCopy } = body;
+    
+    console.log('Nouvelle demande de contact reçue:', { name, email, company, hasMessage: !!message });
 
     // Validation de base
     if (!name || !email || !company || !message) {
@@ -98,15 +117,31 @@ ${message}
     }
 
     // Envoi du mail en production
+    console.log('Préparation à l\'envoi du mail...');
     const transporter = getTransporter();
+    
+    try {
+      console.log('Vérification de la connexion SMTP...');
+      await transporter.verify();
+      console.log('Connexion SMTP vérifiée avec succès');
+    } catch (verifyError: any) {
+      console.error('Erreur lors de la vérification SMTP:', verifyError);
+      return NextResponse.json(
+        { error: 'SMTP verification failed', details: verifyError.message },
+        { status: 500 }
+      );
+    }
+    
+    console.log('Envoi du mail en cours...');
     const info = await transporter.sendMail(mailOptions);
-    console.log('Message sent: %s', info.messageId);
+    console.log('Message envoyé avec succès:', info.messageId);
+    console.log('Informations complètes:', info);
 
     return NextResponse.json({ success: true, messageId: info.messageId });
-  } catch (error) {
-    console.error('Error sending email:', error);
+  } catch (error: any) {
+    console.error('Erreur détaillée lors de l\'envoi d\'email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Failed to send email', details: error.message },
       { status: 500 }
     );
   }
